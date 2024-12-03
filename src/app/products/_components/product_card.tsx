@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
 
-export default function Card({product}) {
+export default function Card({product}:any) {
     return (    
         <div className="mx-auto  mt-11 transform overflow-hidden rounded-lg bg-white dark:bg-slate-800 shadow-md duration-300 ">
             <img className="h-48 w-full object-cover object-center" src={product.imagePath} alt="Product Image" />

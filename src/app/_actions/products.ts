@@ -4,10 +4,10 @@ import db from "@/db/db";
 import fs from "fs/promises";
 
 export async function addProduct(formData:FormData){
-    let data = {};
+    const data:any = {};
     formData.forEach((value,key)=>data[key]=value)
     await fs.mkdir('public/products',{recursive:true});
-    const filePath = `products/${crypto.randomUUID()}-${data.image.name}`
+    const filePath = `products/${crypto.randomUUID()}-${data.image?.name}`
     await fs.writeFile(`public/${filePath}`,Buffer.from(await data.image.arrayBuffer()))
     console.log('coming after the filepath')
     await db.product.create({data:{
