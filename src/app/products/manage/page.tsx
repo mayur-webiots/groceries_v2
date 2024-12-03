@@ -4,7 +4,7 @@ import { revalidatePath } from 'next/cache';
 import React from 'react'
 
 export default async function manageProducts() {
-    let products = await getProducts();
+    const products = await getProducts();
   return (
     <div>
       

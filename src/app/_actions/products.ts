@@ -2,11 +2,9 @@
 
 import db from "@/db/db";
 import fs from "fs/promises";
-import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 export async function addProduct(formData:FormData){
-    var data = {};
+    let data = {};
     formData.forEach((value,key)=>data[key]=value)
     await fs.mkdir('public/products',{recursive:true});
     const filePath = `products/${crypto.randomUUID()}-${data.image.name}`

@@ -6,8 +6,7 @@ import { getProducts } from '../_actions/products';
 
 
 export default async function Products() {
-    let ListOpen = false;
-    let products  =await getProducts();
+    const products  =await getProducts();
     console.log('all the products are',products)
     return (
         <div className='relative'>
