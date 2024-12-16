@@ -14,7 +14,6 @@ model Product{
   id String @id @default(uuid())
   name String
   priceInCents Int
-  imagePath String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   groceryList GroceryList[]
@@ -24,5 +23,6 @@ model GroceryList{
   id String @id @default(uuid())
   quantity Int
   productId String
+  itemTaken Boolean @default(false)
   product Product @relation(fields: [productId],references: [id],onDelete: Cascade)
 }

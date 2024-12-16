@@ -1,26 +1,18 @@
 import React from 'react'
-import Card from './_components/product_card'
-// import { FaArrowUp } from "react-icons/fa";
-import ProductList from './_components/productList';
 import { getProducts } from '../_actions/products';
-
+import AllProducts from './_components/allProducts';
+import ProductList from './_components/productList';
 
 export default async function Products() {
-    const products  =await getProducts();
-    console.log('all the products are',products)
+    const allProducts = await getProducts();
+
     return (
-        <div className='relative'>
-            <div className="page flex">
-                <div className="products grid grid-col-3 lg:grid-cols-3">
-                    {products.map(product=>
-                    <Card product={product} key={product.id}></Card>
+        <div >
+        <div className="flex ">
+        <AllProducts allProducts={allProducts} />
+            <ProductList />
 
-                    )}
-                </div>
-                
-            </div>
-            <ProductList/>
-
+</div>  
         </div>
     )
 }

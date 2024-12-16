@@ -19,9 +19,7 @@ export default async function manageProducts() {
                 <th scope="col" className="px-6 py-3">
                     price
                 </th>
-                <th scope="col" className="px-6 py-3">
-                    Created At
-                </th>
+                
                 <th scope="col" className="px-6 py-3">
                     Actions
                 </th>
@@ -36,11 +34,9 @@ export default async function manageProducts() {
                 <td className="px-6 py-4">
                     {product.priceInCents}
                 </td>
-                <td className="px-6 py-4">
-                    {/* {product.createdAt} */}
-                </td>
+                
                 <td>
-                    <Button onClick={async()=>{
+                    <Button className='bg-red-400' onClick={async()=>{
                         "use server"
                         await deleteProduct(product.id)
                         revalidatePath('/products/manage')

@@ -26,8 +26,8 @@ export default function RootLayout({
         className={cn("bg-background min-h-screen font-sans antialiased",geistSans.variable)}
       >
         <Nav>
+          <NavLink href={"/list"}>Show List</NavLink>
           <NavLink href={"/"}>Dashboard</NavLink>
-          {/* <NavLink href={"/products"}>All Products</NavLink> */}
           <NavLink href={"/products/new"}>New Product</NavLink>
           <NavLink href={"/products/manage"}>Manage Products</NavLink>
         </Nav>

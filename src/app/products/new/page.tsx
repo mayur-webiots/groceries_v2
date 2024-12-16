@@ -21,10 +21,10 @@ export default function NewProduct() {
                     <div className="mt-2 text-muted-foreground">${priceInCents/100}</div>
 
                 </div>
-                <div className="input mt-3">
+                {/* <div className="input mt-3">
                     <Label  htmlFor='image'>Image</Label>
                     <Input type="file" id='image' name='image' />
-                </div>
+                </div> */}
                 <div className="button mt-4 right-0 float-end">
                 <Button type='submit' className='bg-rose-300' >Submit</Button>
                 </div>
