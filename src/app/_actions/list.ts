@@ -14,7 +14,7 @@ if(productExists){
         }
     })
 }
-revalidatePath('/')
+revalidatePath('/','layout')
 }
 
 export async function removeFromList(product:any){
@@ -24,7 +24,7 @@ if(productExists){
 }else{
     // console.log('no such product exists')
 }
-revalidatePath('/')
+revalidatePath('/','layout')
 }
 
 export async function minusFromList(product:any){
@@ -38,7 +38,7 @@ if(productExists){
 }else{
     // console.log('no such product exists')
 }
-revalidatePath('/')
+revalidatePath('/','layout')
 }
 
 export async function getList(){
@@ -61,12 +61,12 @@ export async function toggleItemTaken({item,currentPath}:any){
         await db.groceryList.update({where:{id:item.id},data:{itemTaken:groceryItem.itemTaken?false:true}});
     }else{
     }
-    revalidatePath(currentPath)
+    revalidatePath('/','layout')
 }
 
-// export async function clearGroceryList({currentPath}:any){
-//     await db.groceryList.deleteMany({where:{itemTaken:true }})
-//     await db.groceryList.deleteMany({where:{itemTaken:false }})
-//     revalidatePath(currentPath||'/')
+export async function clearGroceryList({currentPath}:any){
+    await db.groceryList.deleteMany({where:{itemTaken:true }})
+    await db.groceryList.deleteMany({where:{itemTaken:false }})
+    revalidatePath('/','layout')
 
-// }
+}

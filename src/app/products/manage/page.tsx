@@ -39,7 +39,7 @@ export default async function manageProducts() {
                     <Button className='bg-red-400' onClick={async()=>{
                         "use server"
                         await deleteProduct(product.id)
-                        revalidatePath('/products/manage')
+                        revalidatePath('/','layout')
                         }}>Delete</Button>
                 </td>
             </tr>
