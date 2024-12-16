@@ -15,6 +15,7 @@ export async function addProduct(formData:FormData){
     
 }
 
+//CHANGED FOR NEW PRODUCTION BRANCH
 export async function getProducts(){
 
     const allData =await db.product.findMany({
