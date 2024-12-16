@@ -1,7 +1,7 @@
-import List from './list'
-import {  getList } from '@/app/_actions/list'
+// import List from './list'
+// import {  getList } from '@/app/_actions/list'
 export default async function ProductList() {
-    let groceryList = await getList();
+    // let groceryList = await getList();
     return (
         <>
 
@@ -13,7 +13,7 @@ export default async function ProductList() {
                     {/* <ClearListButton/> */}
 
                 </div>
-
+{/* 
                 {groceryList.length ?
                     <ul className=" divide-y divide-gray-200 dark:divide-gray-700">
                         {groceryList.map(item => {
@@ -25,7 +25,7 @@ export default async function ProductList() {
                     <div>
                         No Products in List
                     </div>
-                }
+                } */}
             </div>
         </>
     )
