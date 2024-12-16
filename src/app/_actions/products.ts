@@ -1,6 +1,7 @@
 "use server"
 
 import db from "@/db/db";
+import { revalidatePath } from "next/cache";
 
 
 
@@ -12,6 +13,7 @@ export async function addProduct(formData:FormData){
         priceInCents:Number(data.priceInCents),
 
     }})
+    revalidatePath('/','layout')
     
 }
 
