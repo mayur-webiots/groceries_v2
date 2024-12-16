@@ -1,7 +1,5 @@
-import { Button } from '@/components/ui/button';
 import List from './list'
 import {  getList } from '@/app/_actions/list'
-import ClearListButton from './clearListButton';
 export default async function ProductList() {
     let groceryList = await getList();
     return (
@@ -12,7 +10,7 @@ export default async function ProductList() {
                     <div>
                         Grocery List
                     </div>
-                    <ClearListButton/>
+                    {/* <ClearListButton/> */}
 
                 </div>
 
