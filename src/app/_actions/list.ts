@@ -63,3 +63,10 @@ export async function toggleItemTaken({item,currentPath}:any){
     }
     revalidatePath(currentPath)
 }
+
+export async function clearGroceryList({currentPath}:any){
+    await db.groceryList.deleteMany({where:{itemTaken:true }})
+    await db.groceryList.deleteMany({where:{itemTaken:false }})
+    revalidatePath(currentPath||'/')
+
+}

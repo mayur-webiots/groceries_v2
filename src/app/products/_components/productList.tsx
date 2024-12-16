@@ -1,27 +1,33 @@
+import { Button } from '@/components/ui/button';
 import List from './list'
-import { getList } from '@/app/_actions/list'
+import {  getList } from '@/app/_actions/list'
+import ClearListButton from './clearListButton';
 export default async function ProductList() {
     let groceryList = await getList();
     return (
         <>
 
-            <div className="w-1/2 m-3   ">
-                <div className="heading">
-                    Grocery List
-                </div>
-                
-                {groceryList.length?
-                <ul className=" divide-y divide-gray-200 dark:divide-gray-700">
-                    {groceryList.map(item=>{
-                        return <List item={item} key={item.id}></List>
+            <div className="w-1/2 m-3">
+                <div className="heading flex justify-between">
+                    <div>
+                        Grocery List
+                    </div>
+                    <ClearListButton/>
 
-                    })}
-                </ul>
-                :
-                <div>
-                    No Products in List
                 </div>
-            }
+
+                {groceryList.length ?
+                    <ul className=" divide-y divide-gray-200 dark:divide-gray-700">
+                        {groceryList.map(item => {
+                            return <List item={item} key={item.id}></List>
+
+                        })}
+                    </ul>
+                    :
+                    <div>
+                        No Products in List
+                    </div>
+                }
             </div>
         </>
     )

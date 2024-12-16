@@ -8,11 +8,12 @@ export default async function Products() {
 
     return (
         <div >
-        <div className="flex ">
-        <AllProducts allProducts={allProducts} />
-            <ProductList />
+            
+            <div className="flex ">
+                <AllProducts allProducts={allProducts} />
+                <ProductList />
 
-</div>  
+            </div>
         </div>
     )
 }
