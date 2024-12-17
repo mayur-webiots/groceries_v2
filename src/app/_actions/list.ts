@@ -22,7 +22,7 @@ const productExists = await db.groceryList.findMany({where:{productId:product.id
 if(productExists){
     await db.groceryList.deleteMany({where:{productId:product.id}})
 }else{
-    // console.log('no such product exists')
+    console.log('no such product exists')
 }
 revalidatePath('/','layout')
 }

@@ -32,7 +32,7 @@ export default async function manageProducts() {
                     {product.name}
                 </td>
                 <td className="px-6 py-4">
-                    {product.priceInCents}
+                    {product.price}
                 </td>
                 
                 <td>

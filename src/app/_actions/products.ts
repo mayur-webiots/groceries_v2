@@ -7,12 +7,19 @@ import { revalidatePath } from "next/cache";
 
 export async function addProduct(formData:FormData){
     const data:any = {};
-    formData.forEach((value,key)=>data[key]=value)
-    await db.product.create({data:{
-        name:String(data.product),
-        priceInCents:Number(data.priceInCents),
-
-    }})
+    formData.forEach((value,key)=>data[key]=value);
+    const storeExists = await db.store.findFirst({where:{id:data.store}})
+    const cateogryExists = await db.category.findFirst({where:{id:data.category}})
+    if(storeExists&& cateogryExists){
+        await db.product.create({data:{
+            name:String(data.product),
+            price:Number(data.price),
+            storeId:storeExists.id,
+            categoryId:cateogryExists.id
+        }})
+    }else{
+        console.log("Either Selected Store or Category doesn't exist.")
+    }
     revalidatePath('/','layout')
     
 }
@@ -23,7 +30,7 @@ export async function getProducts(){
         select:{
             id:true,
             name:true,
-            priceInCents:true,
+            price:true,
             createdAt:true,
             updatedAt:true,
 
