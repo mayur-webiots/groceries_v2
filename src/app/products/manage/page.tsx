@@ -17,7 +17,10 @@ export default async function manageProducts() {
                     Product name
                 </th>
                 <th scope="col" className="px-6 py-3">
-                    price
+                    category
+                </th>
+                <th scope="col" className="px-6 py-3">
+                    store
                 </th>
                 
                 <th scope="col" className="px-6 py-3">
@@ -32,7 +35,10 @@ export default async function manageProducts() {
                     {product.name}
                 </td>
                 <td className="px-6 py-4">
-                    {product.price}
+                    {product.categoryName}
+                </td>
+                <td className="px-6 py-4">
+                    {product.storeName}
                 </td>
                 
                 <td>

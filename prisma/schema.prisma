@@ -19,6 +19,8 @@ model Product{
   updatedAt DateTime @updatedAt
   categoryId String
   storeId String
+  storeName String
+  categoryName String
   groceryList GroceryList[]
   category Category @relation(fields: [categoryId],references: [id],onDelete: Cascade)
   store Store @relation(fields: [storeId],references: [id],onDelete: Cascade)

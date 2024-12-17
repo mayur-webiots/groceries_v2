@@ -10,7 +10,7 @@ if(productExists){
     await db.groceryList.create({
         data:{
             productId:product.id,
-            quantity:1
+            quantity:1,
         }
     })
 }

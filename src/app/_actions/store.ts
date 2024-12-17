@@ -28,7 +28,7 @@ export async function addStore(formData: FormData) {
       },
     })
     .catch((error: any) => {
-      console.log("there was an error while addding the store: ", error);
+      console.log("There was an error while addding the store: ", error);
     });
 
   revalidatePath("/", "layout");
