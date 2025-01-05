@@ -69,4 +69,9 @@ export async function clearGroceryList({currentPath}:any){
     await db.groceryList.deleteMany({where:{itemTaken:false }})
     revalidatePath('/','layout')
 
+
+}
+export async function removePurchaedItems(){
+    await db.groceryList.deleteMany({where:{itemTaken:true}})
+    revalidatePath('/','layout')
 }

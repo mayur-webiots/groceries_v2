@@ -5,6 +5,7 @@ import { revalidatePath } from "next/cache";
 
 export async function addProduct(formData: FormData) {
   const data: any = {};
+  let success:any = false;
   formData.forEach((value, key) => (data[key] = value));
   const storeExists = await db.store.findFirst({ where: { id: data.store } });
   const cateogryExists = await db.category.findFirst({
@@ -20,11 +21,13 @@ export async function addProduct(formData: FormData) {
         storeName:storeExists.name,
         categoryName:cateogryExists.name
       },
-    });
+    }).then(()=>{success=true}).catch((error:any)=>{success=error});
   } else {
+    success = "Either Selected Store or Category doesn't exist."
     console.log("Either Selected Store or Category doesn't exist.");
   }
   revalidatePath("/", "layout");
+  return success
 }
 
 export async function getProducts() {
