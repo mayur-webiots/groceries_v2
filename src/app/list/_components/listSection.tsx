@@ -7,10 +7,10 @@ import React from 'react'
 export default function ListSection({ allGroceryList }: any) {
     let groceries = modifyGroceryListData({ allGroceryList })
     return (
-        <div>
+        <div className='text-center'>
+            <Button  className='bg-red-500' onClick={removePurchaedItems}>Remove Purchased</Button>
             {Object.keys(groceries).map((store) => {
                 return <div key={store} className='text-center my-3'>
-                    <Button  className='bg-red-500' onClick={removePurchaedItems}>Remove Purchased</Button>
                     <h3 className="font-bold">{store}</h3>
                     {groceries[store].map((item: any) => 
                         <div className='w-3/4 mx-auto' key={item.id}>
